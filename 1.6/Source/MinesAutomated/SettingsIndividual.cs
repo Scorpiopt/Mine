@@ -1,4 +1,6 @@
-﻿namespace MinesAutomated
+﻿using Verse;
+
+namespace MinesAutomated
 {
     public static class SettingsIndividual
     {
@@ -117,7 +119,7 @@
         // VTR Optimization: Cache management
         private static bool TryGetCachedValue(string key, out float value)
         {
-            if (Verse.Find.TickManager?.TicksGame == null)
+            if (Current.Game is null || Verse.Find.TickManager?.TicksGame == null)
             {
                 value = 0f;
                 return false;
